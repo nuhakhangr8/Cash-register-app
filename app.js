@@ -9,6 +9,7 @@ var noOfNotes=document.querySelectorAll(".no-of-notes")
 
 const availableNotes=[2000,500,100,20,10,5,1];
 
+
 checkButtton.addEventListener("click",function validateCashAndBill(){
     message.style.display="none";
     if(billAmount.value>0){
@@ -22,6 +23,7 @@ checkButtton.addEventListener("click",function validateCashAndBill(){
         }
     }
     else{
+        
         showMessage("Amount should be greater than 0")
         
     }
@@ -44,3 +46,4 @@ function showMessage(msg) {
 //I did not put noOFNotes and amountToBeReturned in calculateChange inside loop
 //did not wire css properly
 //no proper table numbers
+//I will try to work around that next button when i am armed with enough logic
