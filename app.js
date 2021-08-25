@@ -1,23 +1,24 @@
 //disguising html land variables
 //input
 //cash given shows null --because i forgot hash symbol
-var billAmount=document.querySelector("#bill-amt")
-var cashGiven=document.querySelector("#cash-gvn")
+var billAmount=document.querySelector("#bill-amount");
+var cashGiven=document.querySelector("#cash-given")
 var checkButtton=document.querySelector("#check")
 var message=document.querySelector("#message")
 var noOfNotes=document.querySelectorAll(".no-of-notes")
-var availibleNotes=[2000,500,100,20,10,5,1]
 
-checkButtton.addEventListener("click",function cashHandler(){
+const availableNotes=[2000,500,100,20,10,5,1];
+
+checkButtton.addEventListener("click",function validateCashAndBill(){
     message.style.display="none";
     if(billAmount.value>0){
         if(cashGiven.value>=billAmount.value){
-            var amountToBeReturned=cashGiven.value-billAmount.value;
+            const amountToBeReturned=cashGiven.value-billAmount.value;
             calculateChange(amountToBeReturned)
 
         }
         else{
-            showMessage("This is our chef,here's your sponge and these are the plates")
+            showMessage("Do you want to wash plates?")
         }
     }
     else{
@@ -27,15 +28,19 @@ checkButtton.addEventListener("click",function cashHandler(){
 })
 
 function calculateChange(amountToBeReturned){
-    for(var i=0;i<availibleNotes.length;i++){
-        var noOfNotesCurrent=Math.trunc(amountToBeReturned/availibleNotes[i])//516/500=1
+    for(let i=0;i<availableNotes.length;i++){
+        const numberOfNotes=Math.trunc(amountToBeReturned/availableNotes[i])//516/500=1
+        var amountToBeReturned=amountToBeReturned % availableNotes[i];
+        noOfNotes[i].innerText=numberOfNotes;
+
     }
-   var amountToBeReturned=amountToBeReturned % availibleNotes[i];
-   noOfNotes.innerText=noOfNotesCurrent;
-   
 }
 function showMessage(msg) {
     message.style.display = "block"
     message.innerText = msg;
 }
 
+//my errors were
+//I did not put noOFNotes and amountToBeReturned in calculateChange inside loop
+//did not wire css properly
+//no proper table numbers
