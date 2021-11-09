@@ -57,4 +57,3 @@ function showMessage(msg) {
 //I did not put noOFNotes and amountToBeReturned in calculateChange inside loop
 //did not wire css properly
 //no proper table numbers
-//I will try to work around that next button when i am armed with enough logic
