@@ -6,8 +6,19 @@ var cashGiven=document.querySelector("#cash-given")
 var checkButtton=document.querySelector("#check")
 var message=document.querySelector("#message")
 var noOfNotes=document.querySelectorAll(".no-of-notes")
-
+var nextButton=document.querySelector('#next')
+var nextField=document.querySelector('#next-field')
 const availableNotes=[2000,500,100,20,10,5,1];
+nextField.style.display="none";
+
+
+nextButton.addEventListener("click",function nextinput(){
+     if(billAmount.value.length===0){
+     nextField.style.display="none";
+     }else{
+         nextField.style.display="block";
+     }
+  })
 
 
 checkButtton.addEventListener("click",function validateCashAndBill(){
